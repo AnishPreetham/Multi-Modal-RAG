@@ -1,0 +1,53 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+
+# Secrets - never commit real credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.toml
+.streamlit/secrets.toml
+
+# Generated index (rebuildable from data/)
+index/
+*.faiss
+*.index
+*.db
+
+# Ingested user data - never commit potentially sensitive material
+data/documents/*
+data/images/*
+data/audio/*
+!data/documents/.gitkeep
+!data/images/.gitkeep
+!data/audio/.gitkeep
+
+# Evaluation output (dataset and expectations ARE committed)
+evaluation/reports/*
+!evaluation/reports/.gitkeep
+
+# Model caches
+.cache/
+*.bin
+*.safetensors
+
+# Tests / tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

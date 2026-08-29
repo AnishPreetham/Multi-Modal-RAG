@@ -1,0 +1,49 @@
+# Evidence AI - offline-runtime multimodal RAG
+# Verified working on Windows 11 + Python 3.13.7
+#
+# torch MUST come from the CPU wheel index: the 4GB GPU is fully committed
+# to Ollama, so PyTorch models (embeddings, reranker) stay on CPU.
+#   pip install --index-url https://download.pytorch.org/whl/cpu torch
+#
+# Exact resolved versions for a byte-identical environment are in
+# requirements-lock.txt.
+
+# --- Core contracts / config ---
+pydantic>=2.10
+pydantic-settings>=2.6
+python-dotenv>=1.0
+
+# --- Embeddings & reranking (CPU) ---
+torch>=2.5
+sentence-transformers>=3.3
+numpy>=2.0,<2.3
+
+# --- Vector search ---
+faiss-cpu>=1.9
+
+# --- Documents ---
+pymupdf>=1.24
+python-docx>=1.1
+pandas>=2.2
+
+# --- Images / OCR ---
+pillow>=11.0
+opencv-python-headless>=4.10
+pytesseract>=0.3.13
+
+# --- Audio ---
+faster-whisper>=1.1
+
+# --- API & UI ---
+fastapi>=0.115
+uvicorn[standard]>=0.32
+python-multipart>=0.0.20
+streamlit>=1.40
+requests>=2.32
+
+# --- Demo data generation (Windows SAPI speech) ---
+pyttsx3>=2.90
+
+# --- Tests ---
+pytest>=8.0
+httpx>=0.27
